@@ -1,0 +1,83 @@
+
+<p>```python
+import matplotlib.pyplot as plt
+import healpy as hp
+import numpy as np</p>
+
+<p>%matplotlib inline
+```</p>
+
+<p>```python
+class hpix_map(object):</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>"""
+Class for manipulating HEALPix maps.  Note input assumes Galacitc coordinates, and RING ordering. Though
+these can be changed.  
+Does nearest cell interpolation to rotate maps.
+"""
+
+def __init__(self,hpx_map,coord='G',ordering='RING'): 
+    self.nside = hp.get_nside(hpx_map)
+    self.npix = hp.nside2npix(self.nside)
+    self.coord = coord
+    self.hpx_map = hpx_map
+    self.ordering = ordering
+    self.nest = "NESTED" in ordering
+    self.ring = "RING" in ordering
+    return
+
+def change_coord(self,out_coord):
+    ipix = np.arange(self.npix)
+    ang = hp.pix2ang(self.nside,ipix,nest=self.nest) #Get angular position of pixels in hpix colat sys.
+    r0, r1 = hp.Rotator(coord=[self.coord,out_coord],inv=True)(ang)
+    #Returns the angular position in the original map containing the
+    #value of the pixel at r0 r1 in the new map.
+    #Now want to interpolate the value of this from surrounding cells.
+    pix_vals = hp.get_interp_val(self.hpx_map,r0,r1,nest=self.nest)
+    return pix_vals
+
+def gal(self):
+    return self.change_coord('G')
+
+def cel(self):
+    return self.change_coord('C')
+
+def ecl(self):
+    return self.change_coord('E') ```
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">python
+n = hp.ud_grade(hp.read_map('wmap_band_iqumap_r9_9yr_K_v5.fits',nest=False),nside_out=64)
+m = hpix_map(n,ordering='RING')
+</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>NSIDE = 64
+ORDERING = RING in fits file
+INDXSCHM = IMPLICIT
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">python
+hp.mollview(m.gal(),norm='hist')
+hp.mollview(m.cel(),norm='hist')
+hp.mollview(m.ecl(),norm='hist')
+</code></p>
+
+<p><img src="2016-06-26-healpix-rotation_files/2016-06-26-healpix-rotation_3_0.png" alt="png" /></p>
+
+<p><img src="2016-06-26-healpix-rotation_files/2016-06-26-healpix-rotation_3_1.png" alt="png" /></p>
+
+<p><img src="2016-06-26-healpix-rotation_files/2016-06-26-healpix-rotation_3_2.png" alt="png" /></p>
+
+<p>```python</p>
+
+<p>```</p>
+
+<p>```python</p>
+
+<p>```</p>
+
+<p>```python</p>
+
+<p>```</p>
