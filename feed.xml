@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Lorem Ipsum - Web Developer</title>
-    <description>A blog about lorem ipsum ...</description>
+    <title>Ben Thorne - PhD student in astrophysics.</title>
+    <description>A blog keeping track of some of my work ...</description>
     <link>http://victorvoid.github.io/space-jekyll-template//</link>
     <atom:link href="http://victorvoid.github.io/space-jekyll-template//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 26 Jun 2017 13:44:20 +0900</pubDate>
-    <lastBuildDate>Mon, 26 Jun 2017 13:44:20 +0900</lastBuildDate>
+    <pubDate>Mon, 26 Jun 2017 13:51:50 +0900</pubDate>
+    <lastBuildDate>Mon, 26 Jun 2017 13:51:50 +0900</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
