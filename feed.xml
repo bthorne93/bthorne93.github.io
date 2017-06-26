@@ -3,18 +3,18 @@
   <channel>
     <title>Ben Thorne - PhD student in astrophysics.</title>
     <description>A blog keeping track of some of my work ...</description>
-    <link>http://victorvoid.github.io/space-jekyll-template//</link>
-    <atom:link href="http://victorvoid.github.io/space-jekyll-template//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 26 Jun 2017 23:35:45 +0900</pubDate>
-    <lastBuildDate>Mon, 26 Jun 2017 23:35:45 +0900</lastBuildDate>
+    <link>http://bthorne93.github.io//</link>
+    <atom:link href="http://bthorne93.github.io//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Mon, 26 Jun 2017 23:57:01 +0900</pubDate>
+    <lastBuildDate>Mon, 26 Jun 2017 23:57:01 +0900</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
         <title>PyStan - transit model</title>
         <description>&lt;p&gt;PyStan is the Python implementation of the Stan statistical modelling language.  Stan provides a framework for easily setting up probabilistic models and performing Bayesian inference with MCMC sampling.  There is of course a lot of detail behind how the sampler works, but this is going to be a short example of an application of Stan to a simple parameter estimation problem.&lt;/p&gt; &lt;p&gt;I&amp;#39;m going to apply Stan to fit a model of a transit and estimate the parameters involved.  Then I&amp;#39;ll check the fit by making a posterior predictive check, another really convenient feature of Stan.&lt;/p&gt; &lt;p&gt;The only uncommon imports here are...</description>
         <pubDate>Mon, 26 Jun 2017 09:06:31 +0900</pubDate>
-        <link>http://victorvoid.github.io/space-jekyll-template//pystan-transit-model/</link>
-        <guid isPermaLink="true">http://victorvoid.github.io/space-jekyll-template//pystan-transit-model/</guid>
+        <link>http://bthorne93.github.io//pystan-transit-model/</link>
+        <guid isPermaLink="true">http://bthorne93.github.io//pystan-transit-model/</guid>
         
         <category>pystan bayesian</category>
         
@@ -27,8 +27,8 @@
         <title>Easy wins with Cython</title>
         <description>&lt;h1&gt;Cython&lt;/h1&gt; &lt;p&gt;Cython is a compiler that allows for extensions to Python written in C. This overcomes two of the biggest drawbacks of Python for data analysis: the global interpreter lock (GIL) and its dynamic typing. &lt;/p&gt; &lt;p&gt;Using Cython one can use static typing to speed up core functions and loops, making huge speed gains even when compared to well vectorised code. Furthermore, by removing the GIL for pure C sections of code one can use multiple cores using OpenMP. &lt;/p&gt; &lt;p&gt;Let&amp;#39;s go through some examples.&lt;/p&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;cython&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load_ext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Cython&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot;...</description>
         <pubDate>Mon, 26 Jun 2017 09:06:31 +0900</pubDate>
-        <link>http://victorvoid.github.io/space-jekyll-template//easy-wins-with-cython/</link>
-        <guid isPermaLink="true">http://victorvoid.github.io/space-jekyll-template//easy-wins-with-cython/</guid>
+        <link>http://bthorne93.github.io//easy-wins-with-cython/</link>
+        <guid isPermaLink="true">http://bthorne93.github.io//easy-wins-with-cython/</guid>
         
         <category>cython</category>
         
