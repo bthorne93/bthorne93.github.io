@@ -6,6 +6,14 @@
       "tags"     : "pystan bayesian",
       "url"      : "/pystan-transit-model/",
       "date"     : "26 Jun 2017"
+    } ,
+  
+    {
+      "title"    : "Easy wins with Cython",
+      "category" : "Learn cython",
+      "tags"     : "cython",
+      "url"      : "/easy-wins-with-cython/",
+      "date"     : "26 Jun 2017"
     } 
   
 ]

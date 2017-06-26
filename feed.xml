@@ -5,8 +5,8 @@
     <description>A blog keeping track of some of my work ...</description>
     <link>http://victorvoid.github.io/space-jekyll-template//</link>
     <atom:link href="http://victorvoid.github.io/space-jekyll-template//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 26 Jun 2017 17:36:48 +0900</pubDate>
-    <lastBuildDate>Mon, 26 Jun 2017 17:36:48 +0900</lastBuildDate>
+    <pubDate>Mon, 26 Jun 2017 23:26:39 +0900</pubDate>
+    <lastBuildDate>Mon, 26 Jun 2017 23:26:39 +0900</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
     
       <item>
@@ -20,6 +20,20 @@
         
         
         <category>Learn PyStan</category>
+        
+      </item>
+    
+      <item>
+        <title>Easy wins with Cython</title>
+        <description>&lt;h1&gt;Cython&lt;/h1&gt; &lt;p&gt;Cython is a compiler that allows for extensions to Python written in C. This overcomes two of the biggest drawbacks of Python for data analysis: the global interpreter lock (GIL) and its dynamic typing. &lt;/p&gt; &lt;p&gt;Using Cython one can use static typing to speed up core functions and loops, making huge speed gains even when compared to well vectorised code. Furthermore, by removing the GIL for pure C sections of code one can use multiple cores using OpenMP. &lt;/p&gt; &lt;p&gt;Let&amp;#39;s go through some examples.&lt;/p&gt; &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;cython&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;load_ext&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Cython&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-&quot;...</description>
+        <pubDate>Mon, 26 Jun 2017 09:06:31 +0900</pubDate>
+        <link>http://victorvoid.github.io/space-jekyll-template//easy-wins-with-cython/</link>
+        <guid isPermaLink="true">http://victorvoid.github.io/space-jekyll-template//easy-wins-with-cython/</guid>
+        
+        <category>cython</category>
+        
+        
+        <category>Learn cython</category>
         
       </item>
     
