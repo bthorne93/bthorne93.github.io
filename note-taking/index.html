@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Easy wins with Cython</title>
+    <title>Finding a setup for scientific note taking</title>
 
-    <meta name="description" content="Learning Cython">
+    <meta name="description" content="Summary of my setup for science note-taking.">
 
     <!-- Google Authorship Markup -->
     <link rel="author" href="https://plus.google.com/?rel=author">
@@ -15,25 +15,25 @@
     <!-- Social Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@benthorne">
-    <meta name="twitter:title" content="Easy wins with Cython">
-    <meta name="twitter:description" content="Learning Cython">
+    <meta name="twitter:title" content="Finding a setup for scientific note taking">
+    <meta name="twitter:description" content="Summary of my setup for science note-taking.">
 
     
     <meta property="twitter:image:src" content="http://bthorne93.github.io/">
     
 
     <!-- Social Facebook/Open Graph -->
-    <meta property="og:url" content="http://bthorne93.github.io//easy-wins-with-cython/">
-    <meta property="og:title" content="Easy wins with Cython">
+    <meta property="og:url" content="http://bthorne93.github.io//note-taking/">
+    <meta property="og:title" content="Finding a setup for scientific note taking">
     
     <meta property="og:image" content="http://bthorne93.github.io/">
     
-    <meta property="og:description" content="Learning Cython">
+    <meta property="og:description" content="Summary of my setup for science note-taking.">
     <meta property="og:site_name" content="Ben Thorne - PhD student in astrophysics.">
 
     <!-- Social Google+/Schema.org  -->
-    <meta itemprop="name" content="Easy wins with Cython"/>
-    <meta itemprop="description" content="Learning Cython">
+    <meta itemprop="name" content="Finding a setup for scientific note taking"/>
+    <meta itemprop="description" content="Summary of my setup for science note-taking.">
     <meta itemprop="image" content="http://bthorne93.github.io//assets/img/blog-image.png"/>
 
     <!-- Favicon -->
@@ -62,7 +62,7 @@
     <meta name="theme-color" content="#5d4d7a">
 
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="http://bthorne93.github.io//easy-wins-with-cython/">
+    <link rel="canonical" href="http://bthorne93.github.io//note-taking/">
     <link rel="alternate" type="application/rss+xml" title="Ben Thorne - PhD student in astrophysics." href="http://bthorne93.github.io//feed.xml" />
 </head>
 
@@ -94,7 +94,7 @@
     
     <ul>
       <li><span>1</span></li>
-      <li><span> /easy-wins-with-cython/</span></li>
+      <li><span> /note-taking/</span></li>
       <li><span>⌘ blogspace λ </span></li>
       <li><span>* Menu</span></li>
     </ul>
@@ -227,93 +227,96 @@
         <section class="post" itemscope itemtype="http://schema.org/BlogPosting">
             
                 <div class="time">
-                    <time itemprop="datePublished" datetime="2017-06-26 09:06:31 +0900">26 Jun 2017</time>
+                    <time itemprop="datePublished" datetime="2017-08-01 09:06:31 +0900">01 Aug 2017</time>
                 </div>
             
-            <h1 class="post-title" itemprop="name">Easy wins with Cython</h1>
+            <h1 class="post-title" itemprop="name">Finding a setup for scientific note taking</h1>
 
             <article role="article" id="scroll" class="post-content" itemprop="articleBody">
-                <h1>Cython</h1>
+                <h2>The problem</h2>
 
-<p>Cython is a compiler that allows for extensions to Python written in C. This overcomes two of the biggest drawbacks of Python for data analysis: the global interpreter lock (GIL) and its dynamic typing. </p>
+<p>The process of doing research and staying up-to-date with science literature requires a lot of reading. In order to make that reading worthwhile it may be necessary to take some notes summarising content and linking it to other works. The difficulty with this, at least in scientific literature, is the diversity of content that needs to be recorded. This will require software that is able to:</p>
 
-<p>Using Cython one can use static typing to speed up core functions and loops, making huge speed gains even when compared to well vectorised code. Furthermore, by removing the GIL for pure C sections of code one can use multiple cores using OpenMP. </p>
+<ul>
+<li>Write structured text (headings etc...).</li>
+<li>Write equations.</li>
+<li>Present figures.</li>
+<li>Cross-reference content (equations and figures).</li>
+<li>Link URLs.</li>
+<li>Contain bibliographic information.</li>
+</ul>
 
-<p>Let&#39;s go through some examples.</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">cython</span>
-<span class="o">%</span><span class="n">load_ext</span> <span class="n">Cython</span>
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">The Cython extension is already loaded. To reload it, use:
-  %reload_ext Cython
-</code></pre></div><div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">summer</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-    <span class="n">S</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-                <span class="n">S</span> <span class="o">+=</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">j</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">k</span> <span class="o">**</span> <span class="mi">2</span>
-    <span class="k">return</span> <span class="n">S</span>
-</code></pre></div><div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">N</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="o">%</span><span class="n">timeit</span> <span class="n">summer</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">1 loop, best of 3: 219 ms per loop
-</code></pre></div>
-<p>Of course, this is not how we should write Python, <code>for</code> loops are notoriously slow in Python due to the large overhead of typing at run-time. However, cases in which nested loops are unavoidable are the cases in which Cython makes the easiest and most significant gains.</p>
+<p>Clearly, all these points are well answered by LaTeX. However, there is a large overhead associated with maintaining all the extras to LaTeX&#39;s fine-tuning (e.g. macros, style-sheets, packages). LaTeX rarely just <em>works</em>.</p>
 
-<p>Let&#39;s now write the same function again, but in Cython. To do this we need to declare the variable types using the <code>cdef</code> keyword, exactly as we would do if we were writing normal C. Note that we are using the %%cython magic command - this is because Cython is actually a compiler, and what is going on behing the scenes is that out code is being compiled by Cython, which understands how to implement the <code>cdef</code> typing. </p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">%%</span><span class="n">cython</span> <span class="o">-</span><span class="n">a</span>
-<span class="k">def</span> <span class="nf">cython_summer</span><span class="p">(</span><span class="nb">int</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">cdef</span> <span class="nb">int</span> <span class="n">S</span>
-    <span class="n">cdef</span> <span class="nb">int</span> <span class="n">i</span>
-    <span class="n">cdef</span> <span class="nb">int</span> <span class="n">j</span>
-    <span class="n">cdef</span> <span class="nb">int</span> <span class="n">k</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-                <span class="n">S</span> <span class="o">+=</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">j</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">k</span> <span class="o">**</span> <span class="mi">2</span>
-    <span class="k">return</span> <span class="n">S</span>
-</code></pre></div>
-<p>By giving <code>%%cython</code> the <code>-a</code> flag we get an annotated output of the code analysed by Cython, and the C code it generates. The more yellow a line, the more Python overhead it contains. This can be useful for identifying the areas of code with a large Python  overhead, these areas will benefit most from being Cythonized. Let&#39;s now time this:</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">%</span><span class="n">timeit</span> <span class="n">cython_summer</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-</code></pre></div>
-<p>That&#39;s almost a 3 order of magnitude speed up compared to the previous 212ms! 
-But we can go even further! By writing the expensive part of the function in pure C, we are allowed by Python to disable the GIL and run the computation on multiple CPUs. This requires there to be <em>no</em> references to Python objects in the region where GIL is disabled. Doing this will cause you nightmares. </p>
+<p>The solution, in my opinion, is the use of <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> for note-taking, and LaTeX for report-writing.</p>
 
-<p>We must also pass Cython extra flags to tell it to use openmp (these will depend on your platform, for Linux use -fopenmp). We also need to use the <code>cython.parallel.parallel()</code> method to specify the number of threads to use, and the <code>cython.parallel.prange()</code> method to tell OpenMP to distribute these loops between threads (i.e. super-easy to make parallel gains for &#39;embarrassingly parallel&#39; code). Giving <code>guided</code> to the keyword argument <code>schedule</code> means that the threads will be awarded jobs as they become availale.</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">%%</span><span class="n">cython</span> <span class="o">--</span><span class="nb">compile</span><span class="o">-</span><span class="n">args</span><span class="o">=-</span><span class="n">fopenmp</span> <span class="o">--</span><span class="n">link</span><span class="o">-</span><span class="n">args</span><span class="o">=-</span><span class="n">fopenmp</span> <span class="o">--</span><span class="n">force</span> <span class="o">-</span><span class="n">a</span>
-<span class="kn">from</span> <span class="nn">cython.parallel</span> <span class="kn">import</span> <span class="n">parallel</span><span class="p">,</span> <span class="n">prange</span><span class="p">,</span> <span class="n">threadid</span>
-<span class="k">def</span> <span class="nf">cython_parallel_summer</span><span class="p">(</span><span class="nb">int</span> <span class="n">n</span><span class="p">):</span>
-    <span class="n">cdef</span> <span class="nb">int</span> <span class="n">S</span>
-    <span class="n">cdef</span> <span class="nb">int</span> <span class="n">i</span>
-    <span class="n">cdef</span> <span class="nb">int</span> <span class="n">j</span>
-    <span class="n">cdef</span> <span class="nb">int</span> <span class="n">k</span>
-    <span class="k">with</span> <span class="n">nogil</span><span class="p">,</span> <span class="n">parallel</span><span class="p">(</span><span class="n">num_threads</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
-        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">prange</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">schedule</span><span class="o">=</span><span class="s">'guided'</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-                    <span class="n">S</span> <span class="o">+=</span> <span class="n">i</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">j</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">k</span> <span class="o">**</span> <span class="mi">2</span>
-    <span class="k">return</span> <span class="n">S</span>
+<h2>Markdown</h2>
 
-<span class="o">%</span><span class="n">timeit</span> <span class="n">cython_parallel_summer</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
-</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">1000 loops, best of 3: 419 µs per loop
-</code></pre></div>
-<p>Which is another factor of 2, as we might expect.</p>
-<div class="highlight"><pre><code class="language-python" data-lang="python">
-</code></pre></div>
+<p>Makrdown is a light-weight markup language designed to have as slick a syntax as possible. Like LaTeX it is able to handle all of the points above, whilst being extremely simple to write. The only cons are that: the quality of the output is less tweakable, and
+maths can sometimes be difficult to get working.</p>
+
+<p>Markdown is still, relatively, young, and so is being actively developed along different paths (called <em>flavours</em>). The result is that the syntax can vary slightly depending on the exact flavour you opt for (GitHub, pandoc, etc...).</p>
+
+<h1>Editors</h1>
+
+<p>Having resolved to use markdown for the actual note-taking aspect I then want to find the best way to structure notes. Ideally, I would choose to have all notes handled by some application that presents a structured UI with different notebooks for topics.</p>
+
+<h2><a href="https://www.inkdrop.info/"><em>Inkpad</em></a></h2>
+
+<p>I <em>really</em> liked Inkpad. In theory it has all the above features. You can open up a new markdown document in some notebook using the very convenient UI. The markdown variant used is capable of handling maths (this is only after some hacking - the app is still very much in development and so there are some problems. I managed to get it working on Mac but not on Ubuntu 16.04), and all the required linking and images. It does not have a good interface with BibTex, however.</p>
+
+<p>The terminal problem for me with Inkpad was two-fold:</p>
+
+<ol>
+<li>after a two month trial period it costs a few dollars per month.</li>
+<li>I could not get maths to work on Linux. Since I do all my work on a Linux machine this was the kicker.</li>
+</ol>
+
+<h2><a href="https://laverna.cc/"><em>Laverna</em></a></h2>
+
+<p>Laverna is another markdown notebook app with a slightly more open-source feel. Its USP is that it allows you to encrypt all your notes, and back them up online via dropbox.</p>
+
+<p>Laverna is super-lightweight, and straight out of the box it can handle all of the required points above, except citations. It has a rudamentary UI for sorting notes by notebooks, and is a good option. One mild inconvenience is that it does not seem to have a desktop launcher, and so you have to run it from the command line - I&#39;m sure someone more savvy than me could easily write one, though.</p>
+
+<h2><a href="https://atom.io/"><em>Atom</em></a></h2>
+
+<p>Atom is a general-purpose text editor. It provides most of the things you would expect from an editor such as syntax highlighting, code-completion, path-completion. On top of the basic things it then provides a useful UI for opening files.</p>
+
+<p>The strength of Atom is its hackability. There is clearly a large communnity using Atom, consequently there are many premade packages to do all the things you want. These packages can be super-easily installed via the package UI (coming from emacs this is quite a nice surprise), and they just <em>work</em> out of the box. Such packages have allowed me to make atom into a very efficient markdown editor-turned notebook.</p>
+
+<h1>Setup</h1>
+
+<p>So in summary my set up is:</p>
+
+<ol>
+<li><p>Atom with the following packages:</p>
+
+<ul>
+<li>markdown-preview-plus: allows you to turn on a preview panel for the output markdown. This extends the markdown-preview package to allow maths support and citation support using pandoc flavoured markdown.</li>
+<li>markdown-writer: provides a bunch of macros for writing markdown, as well as intelligently continuing lists. Very useful for writing static websites as it allows markdown templates for blog posts to be defined.</li>
+<li>autocomplete-bibtex: pointing this package to some .bib file containing your library allows it to search your entries by author name, super useful!</li>
+</ul></li>
+<li><p>Zotero for handling references with the <a href="">BibTex Better</a> extension. With the</p></li>
+<li><p>Export to pdf via pandoc on the command line. The problem with the markdown-pdf package in Atom is that it assumed GitHub flavoured markdown, and so can not handle the maths.</p></li>
+</ol>
+
             </article>
 
             <section class="share">
 
     <h3>Share</h3>
 
-    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20http://bthorne93.github.io//easy-wins-with-cython/%20via%20&#64;benthorne&hashtags=cython,"
+    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20http://bthorne93.github.io//note-taking/%20via%20&#64;benthorne&hashtags=notes,markdown,latex,software,atom,md,"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
     </a>
 
-    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=http://bthorne93.github.io//easy-wins-with-cython/"
+    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=http://bthorne93.github.io//note-taking/"
     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
         <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
     </a>
 
-    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=http://bthorne93.github.io//easy-wins-with-cython/"
+    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=http://bthorne93.github.io//note-taking/"
     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
         <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
     </a>
@@ -335,7 +338,7 @@ But we can go even further! By writing the expensive part of the function in pur
         disqus_loaded = true;
         var disqus_shortname = '';
         var disqus_title = '';
-        var disqus_url = '/easy-wins-with-cython/';
+        var disqus_url = '/note-taking/';
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);

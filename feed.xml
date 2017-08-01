@@ -5,9 +5,47 @@
     <description>A blog keeping track of some of my work ...</description>
     <link>http://bthorne93.github.io//</link>
     <atom:link href="http://bthorne93.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 27 Jun 2017 00:14:51 +0900</pubDate>
-    <lastBuildDate>Tue, 27 Jun 2017 00:14:51 +0900</lastBuildDate>
+    <pubDate>Tue, 01 Aug 2017 09:23:14 +0900</pubDate>
+    <lastBuildDate>Tue, 01 Aug 2017 09:23:14 +0900</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>Finding a setup for scientific note taking</title>
+        <description>&lt;h2&gt;The problem&lt;/h2&gt; &lt;p&gt;The process of doing research and staying up-to-date with science literature requires a lot of reading. In order to make that reading worthwhile it may be necessary to take some notes summarising content and linking it to other works. The difficulty with this, at least in scientific literature, is the diversity of content that needs to be recorded. This will require software that is able to:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Write structured text (headings etc...).&lt;/li&gt; &lt;li&gt;Write equations.&lt;/li&gt; &lt;li&gt;Present figures.&lt;/li&gt; &lt;li&gt;Cross-reference content (equations and figures).&lt;/li&gt; &lt;li&gt;Link URLs.&lt;/li&gt; &lt;li&gt;Contain bibliographic information.&lt;/li&gt; &lt;/ul&gt; &lt;p&gt;Clearly, all these points are well answered by LaTeX. However, there...</description>
+        <pubDate>Tue, 01 Aug 2017 09:06:31 +0900</pubDate>
+        <link>http://bthorne93.github.io//note-taking/</link>
+        <guid isPermaLink="true">http://bthorne93.github.io//note-taking/</guid>
+        
+        <category>notes</category>
+        
+        <category>markdown</category>
+        
+        <category>latex</category>
+        
+        <category>software</category>
+        
+        <category>atom</category>
+        
+        <category>md</category>
+        
+        
+        <category>Note taking</category>
+        
+      </item>
+    
+      <item>
+        <title>metropolis hastings</title>
+        <description>&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;np&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;matplotlib.pyplot&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;plt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;matplotlib&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;inline&lt;/span&gt; &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;markov_chain&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;&quot;&quot;Markov chain object&quot;&quot;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;__init__&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;output_file_path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;position&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output_file_path&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;output_file_path&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;chain&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;update_position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt; &lt;span class=&quot;bp&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;position&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;position&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span...</description>
+        <pubDate>Tue, 27 Jun 2017 09:01:31 +0900</pubDate>
+        <link>http://bthorne93.github.io//metropolis-hastings/</link>
+        <guid isPermaLink="true">http://bthorne93.github.io//metropolis-hastings/</guid>
+        
+        <category>cython</category>
+        
+        
+        <category>Bayesian</category>
+        
+      </item>
     
       <item>
         <title>PyStan - transit model</title>

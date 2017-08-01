@@ -1,6 +1,22 @@
 [
   
     {
+      "title"    : "Finding a setup for scientific note taking",
+      "category" : "Note taking",
+      "tags"     : "notes, markdown, latex, software, atom, and md",
+      "url"      : "/note-taking/",
+      "date"     : "01 Aug 2017"
+    } ,
+  
+    {
+      "title"    : "metropolis hastings",
+      "category" : "Bayesian",
+      "tags"     : "cython",
+      "url"      : "/metropolis-hastings/",
+      "date"     : "27 Jun 2017"
+    } ,
+  
+    {
       "title"    : "PyStan - transit model",
       "category" : "Learn PyStan",
       "tags"     : "pystan bayesian",
