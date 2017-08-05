@@ -2,6 +2,10 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	
 	  <url>
+		<loc>http://bthorne93.github.io//classy-wrapper/</loc>
+	  </url>
+	
+	  <url>
 		<loc>http://bthorne93.github.io//note-taking/</loc>
 	  </url>
 	
@@ -11,6 +15,10 @@
 	
 	  <url>
 		<loc>http://bthorne93.github.io//pystan-transit-model/</loc>
+	  </url>
+	
+	  <url>
+		<loc>http://bthorne93.github.io//making-nice-plots/</loc>
 	  </url>
 	
 	  <url>

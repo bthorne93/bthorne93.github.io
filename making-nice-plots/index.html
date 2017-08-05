@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Finding a setup for scientific note taking</title>
+    <title>Making Nice Healpix Plots</title>
 
-    <meta name="description" content="Summary of my setup for science note-taking.">
+    <meta name="description" content="Making nice healpix plots">
 
     <!-- Google Authorship Markup -->
     <link rel="author" href="https://plus.google.com/?rel=author">
@@ -15,25 +15,25 @@
     <!-- Social Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@benthorne">
-    <meta name="twitter:title" content="Finding a setup for scientific note taking">
-    <meta name="twitter:description" content="Summary of my setup for science note-taking.">
+    <meta name="twitter:title" content="Making Nice Healpix Plots">
+    <meta name="twitter:description" content="Making nice healpix plots">
 
     
     <meta property="twitter:image:src" content="http://bthorne93.github.io/">
     
 
     <!-- Social Facebook/Open Graph -->
-    <meta property="og:url" content="http://bthorne93.github.io//note-taking/">
-    <meta property="og:title" content="Finding a setup for scientific note taking">
+    <meta property="og:url" content="http://bthorne93.github.io//making-nice-plots/">
+    <meta property="og:title" content="Making Nice Healpix Plots">
     
     <meta property="og:image" content="http://bthorne93.github.io/">
     
-    <meta property="og:description" content="Summary of my setup for science note-taking.">
+    <meta property="og:description" content="Making nice healpix plots">
     <meta property="og:site_name" content="Ben Thorne - PhD student in astrophysics.">
 
     <!-- Social Google+/Schema.org  -->
-    <meta itemprop="name" content="Finding a setup for scientific note taking"/>
-    <meta itemprop="description" content="Summary of my setup for science note-taking.">
+    <meta itemprop="name" content="Making Nice Healpix Plots"/>
+    <meta itemprop="description" content="Making nice healpix plots">
     <meta itemprop="image" content="http://bthorne93.github.io//assets/img/blog-image.png"/>
 
     <!-- Favicon -->
@@ -62,7 +62,7 @@
     <meta name="theme-color" content="#5d4d7a">
 
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="canonical" href="http://bthorne93.github.io//note-taking/">
+    <link rel="canonical" href="http://bthorne93.github.io//making-nice-plots/">
     <link rel="alternate" type="application/rss+xml" title="Ben Thorne - PhD student in astrophysics." href="http://bthorne93.github.io//feed.xml" />
 </head>
 
@@ -94,7 +94,7 @@
     
     <ul>
       <li><span>1</span></li>
-      <li><span> /note-taking/</span></li>
+      <li><span> /making-nice-plots/</span></li>
       <li><span>⌘ blogspace λ </span></li>
       <li><span>* Menu</span></li>
     </ul>
@@ -247,78 +247,27 @@
         <section class="post" itemscope itemtype="http://schema.org/BlogPosting">
             
                 <div class="time">
-                    <time itemprop="datePublished" datetime="2017-08-01 09:06:31 +0900">01 Aug 2017</time>
+                    <time itemprop="datePublished" datetime="2017-06-26 09:06:31 +0900">26 Jun 2017</time>
                 </div>
             
-            <h1 class="post-title" itemprop="name">Finding a setup for scientific note taking</h1>
+            <h1 class="post-title" itemprop="name">Making Nice Healpix Plots</h1>
 
             <article role="article" id="scroll" class="post-content" itemprop="articleBody">
-                <h2>The problem</h2>
+                <p>Often work involves maps of the sky provided in HEALPix format. When presenting these in papers or reports the formatting is often terrible so it would be nice to have some guidelines on creating nice-looking maps. We will use the <code>matplotlib</code> plotting library in Python.</p>
 
-<p>The process of doing research and staying up-to-date with science literature requires a lot of reading. In order to make that reading worthwhile it may be necessary to take some notes summarising content and linking it to other works. The difficulty with this, at least in scientific literature, is the diversity of content that needs to be recorded. This will require software that is able to:</p>
+<h1>Projections</h1>
+
+<p>Firstly, since HEALPix is a pixelisation of the sphere it is impossible to have a 2D representation of the data without distortion. There are many different methods for projecting from the sphere to the plane, and several are available in the <code>healpy</code> module in Python. The available projections are:</p>
 
 <ul>
-<li>Write structured text (headings etc...).</li>
-<li>Write equations.</li>
-<li>Present figures.</li>
-<li>Cross-reference content (equations and figures).</li>
-<li>Link URLs.</li>
-<li>Contain bibliographic information.</li>
+<li>orthonormal.</li>
+<li>cartesian.</li>
+<li>mollweide.</li>
 </ul>
 
-<p>Clearly, all these points are well answered by LaTeX. However, there is a large overhead associated with maintaining all the extras to LaTeX&#39;s fine-tuning (e.g. macros, style-sheets, packages). LaTeX rarely just <em>works</em>.</p>
+<h1>Footprints</h1>
 
-<p>The solution, in my opinion, is the use of <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> for note-taking, and LaTeX for report-writing.</p>
-
-<h2>Markdown</h2>
-
-<p>Makrdown is a light-weight markup language designed to have as slick a syntax as possible. Like LaTeX it is able to handle all of the points above, whilst being extremely simple to write. The only cons are that: the quality of the output is less tweakable, and
-maths can sometimes be difficult to get working.</p>
-
-<p>Markdown is still, relatively, young, and so is being actively developed along different paths (called <em>flavours</em>). The result is that the syntax can vary slightly depending on the exact flavour you opt for (GitHub, pandoc, etc...).</p>
-
-<h1>Editors</h1>
-
-<p>Having resolved to use markdown for the actual note-taking aspect I then want to find the best way to structure notes. Ideally, I would choose to have all notes handled by some application that presents a structured UI with different notebooks for topics.</p>
-
-<h2><a href="https://www.inkdrop.info/"><em>Inkpad</em></a></h2>
-
-<p>I <em>really</em> liked Inkpad. In theory it has all the above features. You can open up a new markdown document in some notebook using the very convenient UI. The markdown variant used is capable of handling maths (this is only after some hacking - the app is still very much in development and so there are some problems. I managed to get it working on Mac but not on Ubuntu 16.04), and all the required linking and images. It does not have a good interface with BibTex, however.</p>
-
-<p>The terminal problem for me with Inkpad was two-fold:</p>
-
-<ol>
-<li>after a two month trial period it costs a few dollars per month.</li>
-<li>I could not get maths to work on Linux. Since I do all my work on a Linux machine this was the kicker.</li>
-</ol>
-
-<h2><a href="https://laverna.cc/"><em>Laverna</em></a></h2>
-
-<p>Laverna is another markdown notebook app with a slightly more open-source feel. Its USP is that it allows you to encrypt all your notes, and back them up online via dropbox.</p>
-
-<p>Laverna is super-lightweight, and straight out of the box it can handle all of the required points above, except citations. It has a rudamentary UI for sorting notes by notebooks, and is a good option. One mild inconvenience is that it does not seem to have a desktop launcher, and so you have to run it from the command line - I&#39;m sure someone more savvy than me could easily write one, though.</p>
-
-<h2><a href="https://atom.io/"><em>Atom</em></a></h2>
-
-<p>Atom is a general-purpose text editor. It provides most of the things you would expect from an editor such as syntax highlighting, code-completion, path-completion. On top of the basic things it then provides a useful UI for opening files.</p>
-
-<p>The strength of Atom is its hackability. There is clearly a large communnity using Atom, consequently there are many premade packages to do all the things you want. These packages can be super-easily installed via the package UI (coming from emacs this is quite a nice surprise), and they just <em>work</em> out of the box. Such packages have allowed me to make atom into a very efficient markdown editor-turned notebook.</p>
-
-<h1>Setup</h1>
-
-<p>So in summary my set up is:</p>
-
-<ol>
-<li><p>Atom with the following packages:</p>
-
-<ul>
-<li>markdown-preview-plus: allows you to turn on a preview panel for the output markdown. This extends the markdown-preview package to allow maths support and citation support using pandoc flavoured markdown.</li>
-<li>markdown-writer: provides a bunch of macros for writing markdown, as well as intelligently continuing lists. Very useful for writing static websites as it allows markdown templates for blog posts to be defined.</li>
-<li>autocomplete-bibtex: pointing this package to some .bib file containing your library allows it to search your entries by author name, super useful!</li>
-</ul></li>
-<li><p>Zotero for handling references with the <a href="">BibTex Better</a> extension.</p></li>
-<li><p>Export to pdf via pandoc on the command line. The problem with the markdown-pdf package in Atom is that it assumed GitHub flavoured markdown, and so can not handle the maths.</p></li>
-</ol>
+<p>Often it is nice to have a visualisation of experimental footprints in order to assess overlap and possible synergy between experiments. You could spend time writing some code to do this, however there is a very nice tool already available on the LAMBDA website for this. It is written in Python and it is super easy to use. Available <a href="https://github.com/nasa-lambda/cmb_footprint">here</a>.</p>
 
             </article>
 
@@ -326,17 +275,17 @@ maths can sometimes be difficult to get working.</p>
 
     <h3>Share</h3>
 
-    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20http://bthorne93.github.io//note-taking/%20via%20&#64;benthorne&hashtags=notes,markdown,latex,software,atom,md,"
+    <a aria-label="Share on Twitter" href="https://twitter.com/intent/tweet?text=&quot;&quot;%20http://bthorne93.github.io//making-nice-plots/%20via%20&#64;benthorne&hashtags=healpix,matplotlib,python,"
     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Share on Twitter">
         <svg class="icon icon-twitter"><use xlink:href="#icon-twitter"></use></svg>
     </a>
 
-    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=http://bthorne93.github.io//note-taking/"
+    <a aria-label="Share on Facebook"href="https://www.facebook.com/sharer/sharer.php?u=http://bthorne93.github.io//making-nice-plots/"
     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook">
         <svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>
     </a>
 
-    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=http://bthorne93.github.io//note-taking/"
+    <a aria-label="Share on Google Plus" href="https://plus.google.com/share?url=http://bthorne93.github.io//making-nice-plots/"
     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google+">
         <svg class="icon icon-google-plus"><use xlink:href="#icon-google-plus"></use></svg>
     </a>
@@ -358,7 +307,7 @@ maths can sometimes be difficult to get working.</p>
         disqus_loaded = true;
         var disqus_shortname = '';
         var disqus_title = '';
-        var disqus_url = '/note-taking/';
+        var disqus_url = '/making-nice-plots/';
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);

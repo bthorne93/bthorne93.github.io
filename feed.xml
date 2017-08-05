@@ -5,9 +5,31 @@
     <description>A blog keeping track of some of my work ...</description>
     <link>http://bthorne93.github.io//</link>
     <atom:link href="http://bthorne93.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 01 Aug 2017 09:23:14 +0900</pubDate>
-    <lastBuildDate>Tue, 01 Aug 2017 09:23:14 +0900</lastBuildDate>
+    <pubDate>Sat, 05 Aug 2017 13:30:03 +0900</pubDate>
+    <lastBuildDate>Sat, 05 Aug 2017 13:30:03 +0900</lastBuildDate>
     <generator>Jekyll v3.0.1</generator>
+    
+      <item>
+        <title>&#39;classy&#39;, the Python wrapper to CLASS&#39;</title>
+        <description>&lt;p&gt;I will be doing some work which will require computing a lot of CMB spectra (as I have in the past, but just used the command line version of CLASS).&lt;/p&gt; &lt;p&gt;There is a good example of how to use &lt;code&gt;classy&lt;/code&gt; &lt;a href=&quot;https://github.com/lesgourg/class_public/wiki/Python-wrapper&quot;&gt;here&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;I will follow this tutorial and add some steps to figure out what I need for calculating Fisher matrices.&lt;/p&gt; &lt;h2&gt;Basic usage&lt;/h2&gt; &lt;p&gt;The class wrapper works in the same way as the C code. One has two main methods: compute and cleanup. The C code main routine consists of two methods: &lt;code&gt;compute&lt;/code&gt; and &lt;code&gt;struct_cleanup&lt;/code&gt; doing all the memory allocation...</description>
+        <pubDate>Fri, 04 Aug 2017 09:06:31 +0900</pubDate>
+        <link>http://bthorne93.github.io//classy-wrapper/</link>
+        <guid isPermaLink="true">http://bthorne93.github.io//classy-wrapper/</guid>
+        
+        <category>class</category>
+        
+        <category>cosmology</category>
+        
+        <category>python</category>
+        
+        <category>cmb</category>
+        
+        
+        <category>CMB</category>
+        
+        <category>research</category>
+        
+      </item>
     
       <item>
         <title>Finding a setup for scientific note taking</title>
@@ -58,6 +80,24 @@
         
         
         <category>Learn PyStan</category>
+        
+      </item>
+    
+      <item>
+        <title>Making Nice Healpix Plots</title>
+        <description>&lt;p&gt;Often work involves maps of the sky provided in HEALPix format. When presenting these in papers or reports the formatting is often terrible so it would be nice to have some guidelines on creating nice-looking maps. We will use the &lt;code&gt;matplotlib&lt;/code&gt; plotting library in Python.&lt;/p&gt; &lt;h1&gt;Projections&lt;/h1&gt; &lt;p&gt;Firstly, since HEALPix is a pixelisation of the sphere it is impossible to have a 2D representation of the data without distortion. There are many different methods for projecting from the sphere to the plane, and several are available in the &lt;code&gt;healpy&lt;/code&gt; module in Python. The available projections are:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;orthonormal.&lt;/li&gt; &lt;li&gt;cartesian.&lt;/li&gt; &lt;li&gt;mollweide.&lt;/li&gt; &lt;/ul&gt;...</description>
+        <pubDate>Mon, 26 Jun 2017 09:06:31 +0900</pubDate>
+        <link>http://bthorne93.github.io//making-nice-plots/</link>
+        <guid isPermaLink="true">http://bthorne93.github.io//making-nice-plots/</guid>
+        
+        <category>healpix</category>
+        
+        <category>matplotlib</category>
+        
+        <category>python</category>
+        
+        
+        <category>coding</category>
         
       </item>
     
